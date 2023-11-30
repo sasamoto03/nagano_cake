@@ -1,0 +1,8 @@
+<h5>本当に退会しますか？</h5>
+<br><br>
+<h5>退会すると、会員登録情報や<br>
+これまでの購入履歴が閲覧できなくなります。<br>
+退会する場合は、『退会する』をクリックしてください。</h5>
+
+<%= link_to "退会しない", customers_my_page_path, class:"button" %>
+<%= link_to "退会する", customers_withdraw_path, class:"button", method: :patch, "data-confirm" => "本当に退会されますか？" %>

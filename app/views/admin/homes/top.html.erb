@@ -1,0 +1,27 @@
+<div class="container">
+ <div class="row">
+  <div class="col-md-10">
+<table class = "table table-hover">
+<h5>注文履歴一覧</h5>
+ <thead>
+  <tr>
+    <th>購入日時</th>
+    <th></th>
+    <th>購入者</th>
+    <th></th>
+    <th>注文個数</th>
+  </tr>
+ </thead>
+<tbody>
+  <% @order.each do |order| %>
+   <tr>
+     <td><%= link_to order.created_at.strftime("%Y/%m/%d"), admin_order_path(order.id) %></td>
+     <td></td>
+     <td><%= order.customer.first_name %><%= order.customer.last_name %></td>
+     <td></td>
+     <td><%= order.item_amount %></td>
+   </tr>
+  <% end %>
+</tbody>
+</table>
+<%= paginate @order %>

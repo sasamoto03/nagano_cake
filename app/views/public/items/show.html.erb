@@ -1,0 +1,11 @@
+<div>
+<%= image_tag @item.get_image(100,100) %>
+<p><%= @item.name %></p>
+<p><%= @item.introduction %></p>
+<p><%= @item.add_tax_price %>(税込)</p>
+<%= form_with model:@cart_item do |f| %>
+<p><%= f.select :amount, *[1..10], { prompt: '個数選択' }, required: true %></p>
+<%= f.hidden_field :item_id, :value => @item.id %>
+<P><%= f.submit "カートに入れる" %></p>
+<% end %>
+</div>

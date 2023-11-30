@@ -1,0 +1,50 @@
+<h4>注文履歴詳細</h4>
+
+<h6>注文情報</h6>
+
+  <div class="card-body">
+    <p class="card-text"><strong>注文日</strong><%= @order.created_at.strftime("%Y/%m/%d") %></p>
+
+    <p class="card-text"><strong>配送先</strong>〒<%= @order.postal_code %><%= @order.address %><%= @order.name %></p>
+
+    <p class="card-text"><strong>支払方法</strong><%= @order.payment_method_i18n %></p>
+  </div>
+<h6>注文内容</h6>
+  <div class="card-body">
+<table>
+  <tr>
+    <td>商品名</td>
+    <td>単価(税込)</td>
+    <td>個数</td>
+    <td>小計</td>
+  </tr>
+<% @order_details.each do |order_detail| %>
+
+<% @sum = 0 %>
+<% @sum += order_detail.item.add_tax_price %>
+        <tr>
+          <td><%= order_detail.item.name %></td>
+          <td><%= order_detail.item.add_tax_price %></td>
+          <td><%= order_detail.quantity %></td>
+          <td><%= order_detail.item.add_tax_price * order_detail.quantity %></td>
+        </tr>
+<% end %>
+</table>
+    </div>
+<h6>請求情報</h6>
+   <div class="card-body">
+<table>
+      <tr>
+        <td>商品合計</td>
+        <td><%= @sum %>円</td>
+      </tr>
+      <tr>
+        <td>送料</td>
+        <td>800円</td>
+      </tr>
+      <tr>
+        <td>請求金額合計</td>
+        <td><%= @sum + 800 %>円</td>
+      </tr>
+   </div>
+</table>

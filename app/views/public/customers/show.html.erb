@@ -1,0 +1,32 @@
+<h2>マイページ</h2>
+
+<h4>登録情報</h4>
+<%= link_to customers_edit_path, class:"button" do %>
+  編集する
+<% end %>
+
+<div class="card">
+
+  <div class="card-body">
+
+    <p class="card-text"><strong>氏名</strong><%= @customer.last_name %><%= @customer.first_name %></p>
+
+    <p class="card-text"><strong>カナ</strong><%= @customer.last_name_kana %><%= @customer.first_name_kana %></p>
+
+    <p class="card-text"><strong>郵便番号</strong><%= @customer.postal_code %></p>
+
+    <p class="card-text"><strong>住所</strong><%= @customer.address %></p>
+
+    <p class="card-text"><strong>電話番号</strong><%= @customer.telephone_number %></p>
+
+    <p class="card-text"><strong>メールアドレス</strong><%= @customer.email %></p>
+  </div>
+</div>
+<h4>配送先</h4>
+  <%= link_to addresses_path, class:"button" do %>
+  一覧を見る
+  <% end %>
+  <h4>注文履歴</h4>
+  <%= link_to orders_path, class:"button" do %>
+  注文履歴一覧
+  <% end %>
