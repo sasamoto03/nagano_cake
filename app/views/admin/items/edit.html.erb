@@ -1,2 +1,12 @@
-<h1>Admin::Items#edit</h1>
-<p>Find me in app/views/admin/items/edit.html.erb</p>
+<h5>商品編集</h5>
+<%= form_with model: @item, url: admin_item_path(@item.id) do |f| %>
+  <h6>商品画像</h6>
+  <%= f.file_field :image, accept: "image/*", class: "form-group" %>
+  <h6>商品名</h6>
+  <%= f.text_field :name, class: "form-group" %>
+  <h6>商品説明</h6>
+  <%= f.text_area :introduction, rows: 5, class: "form-group" %>
+  <h6>税抜き価格</h6>
+  <%= f.text_field :price, class: "form-group" %>円<br>
+  <%= f.submit "変更を保存" %>
+<% end %>

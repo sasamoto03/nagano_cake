@@ -1,1 +1,8 @@
-<h1>Admin::Items#show</h1>
+<h5>商品詳細</h5>
+<div>
+<%= image_tag @item.get_image(100,100) %>
+<p>商品名<%= @item.name %></p>
+<p>商品説明<%= @item.introduction %></p>
+<p>税込価格<%= @item.add_tax_price %>円</p>
+<p><%= link_to "編集する", edit_admin_item_path(@item.id) %></p>
+</div>

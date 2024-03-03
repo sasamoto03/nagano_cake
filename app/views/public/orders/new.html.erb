@@ -2,9 +2,9 @@
 <%= form_with model: @order, url: orders_confirm_path do |f| %>
   <h4>支払方法</h4>
   <%= f.radio_button :payment_method, Order.payment_methods.key(0), checked: true %>
-<%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
+<%= f.label  Order.payment_methods_i18n[:credit_card] %>
 <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
-<%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer]%>
+<%= f.label :payment_method, Order.payment_methods_i18n[:transfer]%>
   <h4>お届け先</h4>
   <%= f.radio_button :address_select_id, "0", checked: true %>
 <%= f.label :address, "ご自身の住所" %>

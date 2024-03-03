@@ -4,7 +4,7 @@
   <table>
     <tr>
       <td>購入者</td>
-      <td><%= @order.customer.first_name %><%= @order.customer.last_name %></td>
+      <td><%= @order.customer.last_name %><%= @order.customer.first_name %></td>
     </tr>
     <tr>
       <td>注文日</td>
@@ -28,19 +28,16 @@
     <td>数量</td>
     <td>小計</td>
   </tr>
+  <% @sum = 0 %>
 <% @order_details.each do |order_detail| %>
-
-<% @sum = 0 %>
 <% @sum += order_detail.item.add_tax_price %>
-
-
         <tr>
           <td><%= order_detail.item.name %></td>
           <td><%= order_detail.item.add_tax_price %></td>
           <td><%= order_detail.quantity %></td>
           <td><%= order_detail.item.add_tax_price * order_detail.quantity %></td>
         </tr>
-
+<% end %>
       <tr>
         <td>商品合計</td>
         <td><%= @sum %>円</td>
@@ -54,4 +51,3 @@
         <td><%= @sum + 800 %>円</td>
       </tr>
   </table>
-<% end %>

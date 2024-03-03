@@ -26,7 +26,7 @@ class Public::OrdersController < ApplicationController
       @order.name= @address.name
       @order.customer_id= @address.customer_id
    end
-   @cart_items = current_customer.cart_items
+   @cart_items = current_customer.cart_items.all
   end
 
   def complete

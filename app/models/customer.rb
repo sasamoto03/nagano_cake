@@ -24,6 +24,7 @@ class Customer < ApplicationRecord
     last_name + " " + first_name
   end
 
+
   # def postal_code
   #   # 郵便番号を取得する処理を記述する
   # end
